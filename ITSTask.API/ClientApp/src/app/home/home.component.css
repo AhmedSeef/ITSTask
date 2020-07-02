@@ -1,0 +1,29 @@
+.wizard{
+    margin-left: 25%;
+    display: block;
+}
+
+
+
+a{
+    float: left;
+}
+
+/* general */
+*, *:before, *:after {-moz-box-sizing: border-box; -webkit-box-sizing: border-box; -ms-box-sizing: border-box; box-sizing: border-box;}
+html {font-size:100%;}
+body {font-size:1em;font-family:'open sans', sans-serif;background-color:#000;color:#fff;line-height:1.5;}
+h1 {text-align:center;font-size:1.5em;}
+div {text-align:center;}
+
+/* arrow buttons */
+.button {display:table;margin:0 auto;text-decoration:none;color:#fff;}
+span {display:table-cell;vertical-align:middle;background-color:blue;padding: 0 .5em 0 1em; line-height:1;}
+.button:before, .button:after {display:table-cell;content:'';border-top:1.5em solid;border-bottom:1.5em solid;border-left:1em solid;}
+.button:before {border-top-color:blue;border-bottom-color:blue;border-left-color:transparent;}
+.button:after {border-top-color:transparent;border-bottom-color:transparent;border-left-color:blue;}
+
+/* hover */
+.button:hover span {background-color:#00aaff;}
+.button:hover:before {border-top-color:#00aaff;border-bottom-color:#00aaff;}
+.button:hover:after {border-left-color:#00aaff;}

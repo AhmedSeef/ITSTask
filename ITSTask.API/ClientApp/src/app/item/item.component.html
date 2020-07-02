@@ -1,0 +1,39 @@
+<div class="item">
+  <div class="btnAdd" (click)="add()">
+    <button class="button">Add New Item</button>
+  </div>
+  <div class="list">
+    <div 
+      class="card border-primary mb-3"
+      style="min-width: 40rem; margin-bottom: -30px; padding-bottom: -5px; cursor: pointer;"
+      *ngFor="let item of itemsModel; let i = index"
+      [attr.data-index]="i"
+    (click)="update(item)">
+      <div class="card-header" style="text-align: left;">
+        <span style="background-color: blue;"
+          >item {{ i + 1 }}
+          <span style="color: aliceblue;" (click)="delete(item.id)">--</span>
+        </span>
+      </div>
+      <div class="card-body text-primary">
+        <h5 class="card-title" style="text-align: left;">{{ item.tittle }}</h5>
+        <h5 class="card-text" style="text-align: left;">
+          {{ item.description }}
+        </h5>
+      </div>
+      <hr />
+    </div>
+  </div>
+
+  <div>
+    <form [hidden]="formHidden">
+      <div class="form-left">
+        <input type="text" name="tittle" [(ngModel)]="model.tittle" />
+        <input type="text" name="description" [(ngModel)]="model.description" />
+      </div>
+      <div class="form-rigt">
+        <input type="submit" value="Save" (click)="Save()" />
+      </div>
+    </form>
+  </div>
+</div>

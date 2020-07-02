@@ -1,0 +1,19 @@
+<div class="wizard">
+  <a class="button" href="#"  [routerLink]="['/item']"
+  routerLinkActive="active"><span>step 1</span></a>
+  <a class="button" href="#" *ngFor="let step of steps"><span>{{step}}</span><span (click)="removeStep(step)">-</span></a>
+  <a class="button" href="#"  (click)="addStep()"><span>+</span></a>
+</div>
+
+
+
+
+<br>
+<div class="container clearfix">
+  <router-outlet></router-outlet>
+</div>
+
+
+
+
+  
