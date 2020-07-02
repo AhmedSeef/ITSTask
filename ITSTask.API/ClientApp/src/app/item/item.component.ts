@@ -32,16 +32,28 @@ export class ItemComponent implements OnInit {
   }
 
   Save() {
-    if (this.model.id === 0) {
-      this.itemsModel.push(this.model);
-    }
-
-    this.itemservice.Save(this.model).subscribe(() => {
-      alert("succsefully");
-    });
-    this.emptymodel();
+    this.itemservice.Save(this.model).subscribe(this.itemObserver);
   }
-
+ 
+  //observer 
+  temp:Item;
+  itemObserver = {
+    next: (data: any) => {     
+    this.temp = data;
+  },
+    error: (err: string) => console.error('Observer got an error: ' + err),
+    complete: () => {
+    if(this.model.id === 0 )
+      {
+        alert("added succsefully");
+        this.itemsModel.push(this.temp)
+      }
+      else{
+        alert("updated succsefully");
+      }
+      this.emptymodel();
+     },
+  };
   emptymodel() {
     this.model = {
       id: 0,
@@ -49,6 +61,7 @@ export class ItemComponent implements OnInit {
       description: "",
     };
   }
+//end observer
 
   delete(id: Number) {    
     const index: number = this.itemsModel.findIndex((item) => item.id == id);

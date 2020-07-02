@@ -35,7 +35,7 @@ namespace ITSTask.API.Controllers
             {
                 _iItemRep.AddOrUpdate(item,item.id);
                
-                return Ok();
+                return Ok(item);
             }
             catch (Exception)
             {
